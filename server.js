@@ -22,6 +22,7 @@ const corsOpts = {
   
     allowedHeaders: [
       'Content-Type',
+      'Authorization'
     ],
   };
   
@@ -34,6 +35,7 @@ let io = socket(server);
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(cors(corsOpts));
+app.options('*', cors());
 
 
 const adminRoutes = require('./routes/adminRoutes')
